@@ -3,6 +3,7 @@ package com.cristhian.calculadorcredito;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.Spinner;
 
 public class MainActivity extends Activity {
 
