@@ -4,9 +4,14 @@
     <string name="app_name">Calculador de Credito</string>
     <string name="action_settings">Settings</string>
     <string name="tvValorPrestamo">Valor del Préstamo</string>
-    <string name="tvInteres">Interés</string> 
+    <string name="tvInteres">Interés del Préstamo</string> 
 	<string-array name="ArrayTipoInteres">
-	    <item>Mensual</item>
-	    <item>Anual</item>
+	    <item name="M">Mensual</item>
+	    <item name="A">Anual</item>
 	</string-array>
+	<string-array name="ArrayCantidadTiempo">
+	    <item name="M">Meses</item>
+	    <item name="A">Años</item>
+	</string-array>
+	    <string name="tvTiempoPrestamo">Tiempo del Préstamo</string>
 </resources>

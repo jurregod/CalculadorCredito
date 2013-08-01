@@ -22,7 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number" >
+        android:hint="Monto del Préstamo"
+        android:inputType="numberDecimal" >
 
         <requestFocus android:layout_width="wrap_content" />
 
@@ -36,21 +37,47 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <LinearLayout
-        android:id="@+id/lyhInteres"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_height="wrap_content" >
 
         <Spinner
             android:id="@+id/spTipoInteres"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:entries="@array/ArrayTipoInteres" />
 
         <EditText
             android:id="@+id/etInteres"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Interés %"
+            android:inputType="number|numberDecimal" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvTiempoPrestamo"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Spinner
+            android:id="@+id/spTiempo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:entries="@array/ArrayCantidadTiempo" />
+
+        <EditText
+            android:id="@+id/etTiempo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="Tiempo Préstamo"
             android:inputType="number" />
 
     </LinearLayout>
