@@ -14,4 +14,7 @@
 	    <item name="A">Años</item>
 	</string-array>
 	    <string name="tvTiempoPrestamo">Tiempo del Préstamo</string>
+	    <string name="btnCalcular">Calcular Cuota Préstamo</string>
+	    <string name="tvValorCuota">Valor Cuota:</string>
+	    <string name="btnAmortizacion">Tabla de Amortización</string>
 </resources>
