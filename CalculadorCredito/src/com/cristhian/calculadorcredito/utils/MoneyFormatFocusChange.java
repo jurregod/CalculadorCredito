@@ -16,7 +16,7 @@ public class MoneyFormatFocusChange implements OnFocusChangeListener {
 			digits = digits.replace("$ ", "");
 			control.setText(digits);
 			control.setFocusable(true);
-		}else{
+		}else if (digits.length() > 0){
 			digits = digits.replaceAll("\\D", "");
 	        NumberFormat nf = NumberFormat.getCurrencyInstance();
 	        nf.setMaximumFractionDigits(0);

@@ -23,8 +23,10 @@ import android.view.View.OnFocusChangeListener;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.ads.*;
@@ -35,6 +37,8 @@ public class MainActivity extends Activity {
 	private EditText etValor;
 	private EditText etInteres;
 	private EditText etTiempo;
+	private Spinner spInteres;
+	private Spinner spTiempo;
 	private AdView anuncio;
 	private LocationManager locManager;
 	private LinearLayout lyDetalle;
@@ -43,6 +47,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		spInteres = (Spinner)findViewById(R.id.spTipoInteres);
+		spTiempo = (Spinner)findViewById(R.id.spTiempo);
 		lyDetalle = (LinearLayout)findViewById(R.id.lyDetalleCuota);
 		lyDetalle.setVisibility(LinearLayout.INVISIBLE);
 		etValor = (EditText)findViewById(R.id.etMonto);
@@ -94,6 +100,21 @@ public class MainActivity extends Activity {
 			etTiempo.requestFocus();
 			return;
 		}
+		double valorCuota;
+		int monto = Integer.parseInt(etValor.getText().toString().replaceAll("\\D", ""));
+		double interes = Double.parseDouble(etInteres.getText().toString().replace("%", "")) / 100;
+		int tiempo = Integer.parseInt(etTiempo.getText().toString());
+		String tipoInteres = spInteres.getSelectedItem().toString().substring(0, 1);
+		String tipoTiempo = spTiempo.getSelectedItem().toString().substring(0, 1);
+		if (tipoInteres.equals("A"))
+			interes = Math.pow((interes + 1), (1.0/12.0)) - 1;
+		if (tipoTiempo.equals("A"))
+			tiempo = tiempo * 12;
+		valorCuota = (interes * monto)/(1- Math.pow((1 + interes), (-1.0 * tiempo)));
+		TextView tvCuota = (TextView)findViewById(R.id.tvValorCuota);
+		NumberFormat nf = NumberFormat.getCurrencyInstance();
+        nf.setMaximumFractionDigits(0);
+		tvCuota.setText(nf.format(valorCuota));
 		lyDetalle.setVisibility(LinearLayout.VISIBLE);
 	}
 	
