@@ -13,6 +13,7 @@ import android.location.LocationManager;
 import android.opengl.Visibility;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.text.Editable;
 import android.text.InputType;
@@ -42,6 +43,11 @@ public class MainActivity extends Activity {
 	private AdView anuncio;
 	private LocationManager locManager;
 	private LinearLayout lyDetalle;
+	private int monto;
+	private int tiempo;
+	private double interes;
+	private double cuota;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -100,22 +106,30 @@ public class MainActivity extends Activity {
 			etTiempo.requestFocus();
 			return;
 		}
-		double valorCuota;
-		int monto = Integer.parseInt(etValor.getText().toString().replaceAll("\\D", ""));
-		double interes = Double.parseDouble(etInteres.getText().toString().replace("%", "")) / 100;
-		int tiempo = Integer.parseInt(etTiempo.getText().toString());
+		monto = Integer.parseInt(etValor.getText().toString().replaceAll("\\D", ""));
+		interes = Double.parseDouble(etInteres.getText().toString().replace("%", "")) / 100;
+		tiempo = Integer.parseInt(etTiempo.getText().toString());
 		String tipoInteres = spInteres.getSelectedItem().toString().substring(0, 1);
 		String tipoTiempo = spTiempo.getSelectedItem().toString().substring(0, 1);
 		if (tipoInteres.equals("A"))
 			interes = Math.pow((interes + 1), (1.0/12.0)) - 1;
 		if (tipoTiempo.equals("A"))
 			tiempo = tiempo * 12;
-		valorCuota = (interes * monto)/(1- Math.pow((1 + interes), (-1.0 * tiempo)));
+		cuota = (interes * monto)/(1- Math.pow((1 + interes), (-1.0 * tiempo)));
 		TextView tvCuota = (TextView)findViewById(R.id.tvValorCuota);
 		NumberFormat nf = NumberFormat.getCurrencyInstance();
         nf.setMaximumFractionDigits(0);
-		tvCuota.setText(nf.format(valorCuota));
+		tvCuota.setText(nf.format(cuota));
 		lyDetalle.setVisibility(LinearLayout.VISIBLE);
+	}
+	
+	public void mostrarTablaAmortizacion(View view){
+		Intent i = new Intent(this, ActTablaAmortizaion.class);
+		i.putExtra("monto", monto);
+		i.putExtra("interes", interes);
+		i.putExtra("tiempo", tiempo);
+		i.putExtra("cuota", cuota);
+		startActivity(i);
 	}
 	
 }

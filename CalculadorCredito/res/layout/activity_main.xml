@@ -126,6 +126,7 @@
             android:id="@+id/btnAmortizacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="mostrarTablaAmortizacion"
             android:text="@string/btnAmortizacion" />
 
     </LinearLayout>

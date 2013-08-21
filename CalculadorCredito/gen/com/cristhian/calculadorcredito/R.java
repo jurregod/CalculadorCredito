@@ -28,33 +28,42 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000e;
-        public static final int btnAmortizacion=0x7f09000d;
-        public static final int btnCalcular=0x7f090009;
-        public static final int etInteres=0x7f090005;
-        public static final int etMonto=0x7f090002;
-        public static final int etTiempo=0x7f090008;
-        public static final int lyDetalleCuota=0x7f09000a;
-        public static final int lyMain=0x7f090000;
-        public static final int spTiempo=0x7f090007;
-        public static final int spTipoInteres=0x7f090004;
-        public static final int tvInteres=0x7f090003;
-        public static final int tvMonto=0x7f090001;
-        public static final int tvTiempoPrestamo=0x7f090006;
-        public static final int tvTituloCuota=0x7f09000b;
-        public static final int tvValorCuota=0x7f09000c;
+        public static final int LinearLayout1=0x7f090000;
+        public static final int action_settings=0x7f090012;
+        public static final int btnAmortizacion=0x7f09000e;
+        public static final int btnCalcular=0x7f09000a;
+        public static final int etInteres=0x7f090006;
+        public static final int etMonto=0x7f090003;
+        public static final int etTiempo=0x7f090009;
+        public static final int icono=0x7f09000f;
+        public static final int lyDetalleCuota=0x7f09000b;
+        public static final int lyMain=0x7f090001;
+        public static final int spTiempo=0x7f090008;
+        public static final int spTipoInteres=0x7f090005;
+        public static final int subtitulo=0x7f090011;
+        public static final int titulo=0x7f090010;
+        public static final int tvInteres=0x7f090004;
+        public static final int tvMonto=0x7f090002;
+        public static final int tvTiempoPrestamo=0x7f090007;
+        public static final int tvTituloCuota=0x7f09000c;
+        public static final int tvValorCuota=0x7f09000d;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int activity_act_tabla_amortizaion=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int elemento_lista=0x7f030002;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int act_list_amortizacion=0x7f080000;
+        public static final int act_tabla_amortizaion=0x7f080001;
+        public static final int main=0x7f080002;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int btnAmortizacion=0x7f050007;
         public static final int btnCalcular=0x7f050005;
+        public static final int title_activity_act_tabla_amortizaion=0x7f050008;
         public static final int tvInteres=0x7f050003;
         public static final int tvTiempoPrestamo=0x7f050004;
         public static final int tvValorCuota=0x7f050006;
