@@ -13,10 +13,45 @@ public final class R {
         public static final int ArrayTipoInteres=0x7f060000;
     }
     public static final class attr {
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textAbonoCapital=0x7f010001;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textAbonoInteres=0x7f010002;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textNumero=0x7f010000;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textSaldo=0x7f010003;
     }
     public static final class color {
-        public static final int registro1=0x7f080000;
-        public static final int registro2=0x7f080001;
+        public static final int cabecera=0x7f080002;
+        public static final int registro1=0x7f080001;
+        public static final int registro2=0x7f080000;
+        public static final int textCabecera=0x7f080003;
+        public static final int textItems=0x7f080004;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -33,25 +68,30 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout1=0x7f0a0000;
-        public static final int action_settings=0x7f0a0013;
-        public static final int btnAmortizacion=0x7f0a000e;
-        public static final int btnCalcular=0x7f0a000a;
-        public static final int etInteres=0x7f0a0006;
-        public static final int etMonto=0x7f0a0003;
-        public static final int etTiempo=0x7f0a0009;
-        public static final int lyDetalleCuota=0x7f0a000b;
-        public static final int lyMain=0x7f0a0001;
-        public static final int spTiempo=0x7f0a0008;
-        public static final int spTipoInteres=0x7f0a0005;
-        public static final int tvAbonoCapital=0x7f0a0010;
-        public static final int tvAbonoInteres=0x7f0a0011;
-        public static final int tvInteres=0x7f0a0004;
-        public static final int tvMonto=0x7f0a0002;
-        public static final int tvNumero=0x7f0a000f;
-        public static final int tvSaldo=0x7f0a0012;
-        public static final int tvTiempoPrestamo=0x7f0a0007;
-        public static final int tvTituloCuota=0x7f0a000c;
-        public static final int tvValorCuota=0x7f0a000d;
+        public static final int action_settings=0x7f0a0018;
+        public static final int btnAmortizacion=0x7f0a0013;
+        public static final int btnCalcular=0x7f0a000f;
+        public static final int cabecera=0x7f0a0005;
+        public static final int etInteres=0x7f0a000b;
+        public static final int etMonto=0x7f0a0008;
+        public static final int etTiempo=0x7f0a000e;
+        public static final int lyDetalleCuota=0x7f0a0010;
+        public static final int lyMain=0x7f0a0006;
+        public static final int spTiempo=0x7f0a000d;
+        public static final int spTipoInteres=0x7f0a000a;
+        public static final int tvAbonoCapital=0x7f0a0015;
+        public static final int tvAbonoInteres=0x7f0a0016;
+        public static final int tvCabeceraCuota=0x7f0a0002;
+        public static final int tvCabeceraInteres=0x7f0a0003;
+        public static final int tvCabeceraMonto=0x7f0a0001;
+        public static final int tvCabeceraNoCuotas=0x7f0a0004;
+        public static final int tvInteres=0x7f0a0009;
+        public static final int tvMonto=0x7f0a0007;
+        public static final int tvNumero=0x7f0a0014;
+        public static final int tvSaldo=0x7f0a0017;
+        public static final int tvTiempoPrestamo=0x7f0a000c;
+        public static final int tvTituloCuota=0x7f0a0011;
+        public static final int tvValorCuota=0x7f0a0012;
     }
     public static final class layout {
         public static final int activity_act_tabla_amortizaion=0x7f030000;
@@ -73,6 +113,8 @@ public final class R {
         public static final int tvTiempoPrestamo=0x7f050004;
         public static final int tvValorCuota=0x7f050006;
         public static final int tvValorPrestamo=0x7f050002;
+        public static final int validacionAno=0x7f050009;
+        public static final int validacionMes=0x7f05000a;
     }
     public static final class style {
         /** 
@@ -101,5 +143,84 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
+        public static final int ItemscabeceraAmortizacion=0x7f070003;
+        public static final int itemsList=0x7f070002;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a ElementoLista.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ElementoLista_textAbonoCapital com.cristhian.calculadorcredito:textAbonoCapital}</code></td><td></td></tr>
+           <tr><td><code>{@link #ElementoLista_textAbonoInteres com.cristhian.calculadorcredito:textAbonoInteres}</code></td><td></td></tr>
+           <tr><td><code>{@link #ElementoLista_textNumero com.cristhian.calculadorcredito:textNumero}</code></td><td></td></tr>
+           <tr><td><code>{@link #ElementoLista_textSaldo com.cristhian.calculadorcredito:textSaldo}</code></td><td></td></tr>
+           </table>
+           @see #ElementoLista_textAbonoCapital
+           @see #ElementoLista_textAbonoInteres
+           @see #ElementoLista_textNumero
+           @see #ElementoLista_textSaldo
+         */
+        public static final int[] ElementoLista = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.cristhian.calculadorcredito.R.attr#textAbonoCapital}
+          attribute's value can be found in the {@link #ElementoLista} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:textAbonoCapital
+        */
+        public static final int ElementoLista_textAbonoCapital = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.cristhian.calculadorcredito.R.attr#textAbonoInteres}
+          attribute's value can be found in the {@link #ElementoLista} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:textAbonoInteres
+        */
+        public static final int ElementoLista_textAbonoInteres = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.cristhian.calculadorcredito.R.attr#textNumero}
+          attribute's value can be found in the {@link #ElementoLista} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:textNumero
+        */
+        public static final int ElementoLista_textNumero = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.cristhian.calculadorcredito.R.attr#textSaldo}
+          attribute's value can be found in the {@link #ElementoLista} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:textSaldo
+        */
+        public static final int ElementoLista_textSaldo = 3;
+    };
 }

@@ -29,7 +29,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Monto del Préstamo"
-        android:inputType="numberDecimal|text" >
+        android:inputType="numberDecimal"
+        android:maxLength="10" >
 
         <requestFocus android:layout_width="wrap_content" />
 
@@ -57,7 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Interés %"
-            android:inputType="number|numberDecimal" />
+            android:inputType="number|numberDecimal"
+            android:maxLength="3" />
 
     </LinearLayout>
 

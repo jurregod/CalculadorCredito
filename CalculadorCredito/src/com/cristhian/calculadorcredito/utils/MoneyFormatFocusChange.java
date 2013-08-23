@@ -12,12 +12,11 @@ public class MoneyFormatFocusChange implements OnFocusChangeListener {
 	public void onFocusChange(View v, boolean hasFocus) {
 		EditText control = (EditText)v;
 		String digits = control.getText().toString();
+		digits = digits.replaceAll("\\D", "");
 		if (hasFocus){
-			digits = digits.replace("$ ", "");
 			control.setText(digits);
 			control.setFocusable(true);
 		}else if (digits.length() > 0){
-			digits = digits.replaceAll("\\D", "");
 	        NumberFormat nf = NumberFormat.getCurrencyInstance();
 	        nf.setMaximumFractionDigits(0);
             String formatted = nf.format(Double.parseDouble(digits));

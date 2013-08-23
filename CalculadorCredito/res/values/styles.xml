@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -16,6 +16,17 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    <color name="registro1">#15D3C6</color>
-	<color name="registro2">#67ED74</color>
+    <style name="itemsList"> <!-- Estilo para los items de la lista de la tabla de amortizacion -->
+        <item name="android:textColor">@color/textItems</item>
+    </style>
+    <style name="ItemscabeceraAmortizacion"> <!-- estilo para los items de la cabecera de la tabla de amortizacion -->
+        <item name="android:textColor">@color/textCabecera</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+    <color name="registro2">#F3F3F3</color>
+	<color name="registro1">#F9F9F9</color>
+	<color name="cabecera">#CD5344</color>
+	<color name="textCabecera">#FCFFFF</color>
+	<color name="textItems">#858585</color>
 </resources>

@@ -12,15 +12,18 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.opengl.Visibility;
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
+import android.view.View.OnKeyListener;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -33,7 +36,7 @@ import android.widget.Toast;
 import com.google.ads.*;
 import com.google.ads.AdRequest.ErrorCode;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnKeyListener {
 	
 	private EditText etValor;
 	private EditText etInteres;
@@ -62,6 +65,7 @@ public class MainActivity extends Activity {
 		etInteres = (EditText)findViewById(R.id.etInteres);
 		etInteres.setOnFocusChangeListener(new PercentFormatFocusChange());
 		etTiempo = (EditText)findViewById(R.id.etTiempo);
+		etTiempo.setOnKeyListener(this);
 		//Obtenemos una referencia al servicio de localizacion
 		locManager = (LocationManager)getSystemService(LOCATION_SERVICE);		
 		anuncio = new AdView(this, AdSize.BANNER, "ca-app-pub-7618114390015000/8160452378");
@@ -130,6 +134,20 @@ public class MainActivity extends Activity {
 		i.putExtra("tiempo", tiempo);
 		i.putExtra("cuota", cuota);
 		startActivity(i);
+	}
+
+	@Override
+	public boolean onKey(View v, int keyCode, KeyEvent event) {
+		String text = this.etTiempo.getText().toString();
+		String tmpTiempo = spTiempo.getSelectedItem().toString().substring(0, 1);
+		if (tmpTiempo.equals("A") && text.length() > 0 && Integer.parseInt(text) > 20){
+			this.etTiempo.setText("");
+			Toast.makeText(this, this.getString(R.string.validacionAno), Toast.LENGTH_SHORT).show();
+		}else if(tmpTiempo.equals("M") && text.length() > 0 && Integer.parseInt(text) > 240){
+			this.etTiempo.setText("");
+			Toast.makeText(this, this.getString(R.string.validacionMes), Toast.LENGTH_SHORT).show();
+		}
+		return false;
 	}
 	
 }
