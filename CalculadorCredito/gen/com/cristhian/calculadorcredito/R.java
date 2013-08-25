@@ -29,6 +29,14 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int textAbonoInteres=0x7f010002;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textNegrilla=0x7f010004;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -155,16 +163,19 @@ containing a value of this type.
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #ElementoLista_textAbonoCapital com.cristhian.calculadorcredito:textAbonoCapital}</code></td><td></td></tr>
            <tr><td><code>{@link #ElementoLista_textAbonoInteres com.cristhian.calculadorcredito:textAbonoInteres}</code></td><td></td></tr>
+           <tr><td><code>{@link #ElementoLista_textNegrilla com.cristhian.calculadorcredito:textNegrilla}</code></td><td></td></tr>
            <tr><td><code>{@link #ElementoLista_textNumero com.cristhian.calculadorcredito:textNumero}</code></td><td></td></tr>
            <tr><td><code>{@link #ElementoLista_textSaldo com.cristhian.calculadorcredito:textSaldo}</code></td><td></td></tr>
            </table>
            @see #ElementoLista_textAbonoCapital
            @see #ElementoLista_textAbonoInteres
+           @see #ElementoLista_textNegrilla
            @see #ElementoLista_textNumero
            @see #ElementoLista_textSaldo
          */
         public static final int[] ElementoLista = {
-            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004
         };
         /**
           <p>This symbol is the offset where the {@link com.cristhian.calculadorcredito.R.attr#textAbonoCapital}
@@ -194,6 +205,20 @@ containing a value of this type.
           @attr name android:textAbonoInteres
         */
         public static final int ElementoLista_textAbonoInteres = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.cristhian.calculadorcredito.R.attr#textNegrilla}
+          attribute's value can be found in the {@link #ElementoLista} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:textNegrilla
+        */
+        public static final int ElementoLista_textNegrilla = 4;
         /**
           <p>This symbol is the offset where the {@link com.cristhian.calculadorcredito.R.attr#textNumero}
           attribute's value can be found in the {@link #ElementoLista} array.
