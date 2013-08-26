@@ -4,8 +4,9 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
-import com.cristhian.calculadorcredito.utils.MoneyFormatFocusChange;
-import com.cristhian.calculadorcredito.utils.PercentFormatFocusChange;
+import com.cristhian.calculadorcredito.listener.MoneyFormatFocusChange;
+import com.cristhian.calculadorcredito.listener.PercentFormatFocusChange;
+import com.cristhian.calculadorcredito.listener.TiempoItemSelectedListener;
 
 import android.location.Location;
 import android.location.LocationListener;
@@ -14,6 +15,7 @@ import android.opengl.Visibility;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.text.Editable;
@@ -24,6 +26,10 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.view.View.OnKeyListener;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -36,7 +42,7 @@ import android.widget.Toast;
 import com.google.ads.*;
 import com.google.ads.AdRequest.ErrorCode;
 
-public class MainActivity extends Activity implements OnKeyListener, AdListener {
+public class MainActivity extends Activity implements AdListener {
 	
 	private InterstitialAd anuncioInter;
 	private EditText etValor;
@@ -47,7 +53,7 @@ public class MainActivity extends Activity implements OnKeyListener, AdListener 
 	private AdView anuncio;
 	private LocationManager locManager;
 	private LinearLayout lyDetalle;
-	private int monto;
+	private double monto;
 	private int tiempo;
 	private double interes;
 	private double cuota;
@@ -59,6 +65,7 @@ public class MainActivity extends Activity implements OnKeyListener, AdListener 
 		setContentView(R.layout.activity_main);
 		spInteres = (Spinner)findViewById(R.id.spTipoInteres);
 		spTiempo = (Spinner)findViewById(R.id.spTiempo);
+		spTiempo.setOnItemSelectedListener(new TiempoItemSelectedListener(this));
 		lyDetalle = (LinearLayout)findViewById(R.id.lyDetalleCuota);
 		lyDetalle.setVisibility(LinearLayout.INVISIBLE);
 		etValor = (EditText)findViewById(R.id.etMonto);
@@ -66,7 +73,6 @@ public class MainActivity extends Activity implements OnKeyListener, AdListener 
 		etInteres = (EditText)findViewById(R.id.etInteres);
 		etInteres.setOnFocusChangeListener(new PercentFormatFocusChange());
 		etTiempo = (EditText)findViewById(R.id.etTiempo);
-		etTiempo.setOnKeyListener(this);
 		//Obtenemos una referencia al servicio de localizacion
 		locManager = (LocationManager)getSystemService(LOCATION_SERVICE);	
 		anuncio = new AdView(this, AdSize.BANNER, "ca-app-pub-7618114390015000/8160452378");
@@ -106,12 +112,14 @@ public class MainActivity extends Activity implements OnKeyListener, AdListener 
 			etInteres.requestFocus();
 			return;
 		}
-		if (etTiempo.getText().length() == 0){
+		if (etTiempo.getText().length() == 0 || etTiempo.getText().toString().equals("0")){
+			etTiempo.setText("");
 			Toast.makeText(getApplicationContext(), "Ingrese el tiempo del crédito", Toast.LENGTH_SHORT).show();
 			etTiempo.requestFocus();
 			return;
 		}
-		monto = Integer.parseInt(etValor.getText().toString().replaceAll("\\D", ""));
+		quitarTeclado(boton);
+		monto = Double.parseDouble(etValor.getText().toString().replaceAll("\\D", ""));
 		interes = Double.parseDouble(etInteres.getText().toString().replace("%", "")) / 100;
 		tiempo = Integer.parseInt(etTiempo.getText().toString());
 		String tipoInteres = spInteres.getSelectedItem().toString().substring(0, 1);
@@ -120,12 +128,18 @@ public class MainActivity extends Activity implements OnKeyListener, AdListener 
 			interes = Math.pow((interes + 1), (1.0/12.0)) - 1;
 		if (tipoTiempo.equals("A"))
 			tiempo = tiempo * 12;
-		cuota = (interes * monto)/(1- Math.pow((1 + interes), (-1.0 * tiempo)));
+		double cuotaXinteres = monto;
+		if (interes == 0){
+			cuota = monto / tiempo;
+		}else{
+			cuota = (interes * monto) /(1- Math.pow((1 + interes), (-1.0 * tiempo)));
+		}
 		TextView tvCuota = (TextView)findViewById(R.id.tvValorCuota);
 		NumberFormat nf = NumberFormat.getCurrencyInstance();
         nf.setMaximumFractionDigits(0);
 		tvCuota.setText(nf.format(cuota));
 		lyDetalle.setVisibility(LinearLayout.VISIBLE);
+		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 	}
 	
 	public void mostrarTablaAmortizacion(View view){
@@ -146,19 +160,10 @@ public class MainActivity extends Activity implements OnKeyListener, AdListener 
 		i.putExtra("cuota", cuota);
 		startActivity(i);
 	}
-
-	@Override
-	public boolean onKey(View v, int keyCode, KeyEvent event) {
-		String text = this.etTiempo.getText().toString();
-		String tmpTiempo = spTiempo.getSelectedItem().toString().substring(0, 1);
-		if (tmpTiempo.equals("A") && text.length() > 0 && Integer.parseInt(text) > 20){
-			this.etTiempo.setText("");
-			Toast.makeText(this, this.getString(R.string.validacionAno), Toast.LENGTH_SHORT).show();
-		}else if(tmpTiempo.equals("M") && text.length() > 0 && Integer.parseInt(text) > 240){
-			this.etTiempo.setText("");
-			Toast.makeText(this, this.getString(R.string.validacionMes), Toast.LENGTH_SHORT).show();
-		}
-		return false;
+	
+	private void quitarTeclado(View v) {
+		InputMethodManager teclado = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		teclado.hideSoftInputFromWindow(v.getWindowToken(), 0);
 	}
 	
 	@Override

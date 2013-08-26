@@ -1,6 +1,8 @@
-package com.cristhian.calculadorcredito.utils;
+package com.cristhian.calculadorcredito.listener;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Locale;
 
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
@@ -19,7 +21,7 @@ public class MoneyFormatFocusChange implements OnFocusChangeListener {
 		}else if (digits.length() > 0){
 	        NumberFormat nf = NumberFormat.getCurrencyInstance();
 	        nf.setMaximumFractionDigits(0);
-            String formatted = nf.format(Double.parseDouble(digits));
+	        String formatted = nf.format(Double.parseDouble(digits));
             control.setText(formatted.toString());
 		}		
 	}
