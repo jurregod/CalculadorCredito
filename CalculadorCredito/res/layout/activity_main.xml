@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Monto del Préstamo"
+        android:hint="@string/hintEtMonto"
         android:inputType="number" >
 
         <requestFocus android:layout_width="wrap_content" />
@@ -56,7 +56,7 @@
             android:id="@+id/etInteres"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Interés %"
+            android:hint="@string/hintEtInteres"
             android:inputType="number|numberDecimal"
             android:maxLength="4" />
 
@@ -84,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:ems="10"
-            android:hint="Tiempo Préstamo"
+            android:hint="@string/hintEtTiempo"
             android:inputType="number" />
 
     </LinearLayout>

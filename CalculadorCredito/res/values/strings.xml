@@ -13,13 +13,26 @@
         <item name="M">Meses</item>
         <item name="A">Años</item>
     </string-array>
-
+	<string name="hintEtMonto">Monto del Préstamo</string>
+	<string name="hintEtInteres">Interés %</string>
+	<string name="hintEtTiempo">Tiempo Préstamo</string>
     <string name="tvTiempoPrestamo">Tiempo del Préstamo</string>
     <string name="btnCalcular">Calcular Cuota Préstamo</string>
     <string name="tvValorCuota">Valor Cuota:</string>
     <string name="btnAmortizacion">Tabla de Amortización</string>
     <string name="title_activity_act_tabla_amortizaion">Tabla Amortización</string>
+    <!-- String que se usan como cabecera del ListView de la tabla de amortizacion -->
+    <string name="CabeceraItemNumero">No.</string>
+    <string name="CabeceraItemAbonoCapital">A.Capital</string>
+    <string name="CabeceraItemAbonoInteres">A.Interes</string>
+    <string name="CabeceraItemSaldo">Saldo</string>
+    <!-- String que son usados en la cabecera de la actividad donde esta la tabla de amortizacion -->
+    <string name="CabeceraNoCuotas">No. Cuotas</string>
+    <string name="CabeceraCuota">Cuota</string>
+    <string name="CabeceraInteres">Interes</string>
+    <string name="CabeceraMonto">Monto</string>
     
-    <string name="validacionAno">El tiempo no puede superar los 20 años</string>
-    <string name="validacionMes">El tiempo no puede superar los 240 Meses</string>
+    <!-- Menus -->
+    <string name="menuSalir">Salir</string>
+    <string name="menuLimpiar">Limpiar</string>
 </resources>

@@ -23,6 +23,7 @@ import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.view.View.OnKeyListener;
@@ -96,6 +97,25 @@ public class MainActivity extends Activity implements AdListener {
 	}
 	
 	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch(item.getItemId()){
+		case R.id.itemLimpiar:
+			limpiar();
+			break;
+		case R.id.itemSalir:
+			finish();
+			break;
+		}
+		return true;
+	}
+
+	private void limpiar(){
+		etValor.setText("");
+		etInteres.setText("");
+		etValor.setText("");
+	}
+	
+	@Override
 	public void onDestroy() {
 		anuncio.destroy();
 	  	super.onDestroy();
@@ -124,9 +144,11 @@ public class MainActivity extends Activity implements AdListener {
 		tiempo = Integer.parseInt(etTiempo.getText().toString());
 		String tipoInteres = spInteres.getSelectedItem().toString().substring(0, 1);
 		String tipoTiempo = spTiempo.getSelectedItem().toString().substring(0, 1);
-		if (tipoInteres.equals("A"))
+		//if (tipoInteres.equals("A"))
+		if (spInteres.getSelectedItemPosition() == 1)
 			interes = Math.pow((interes + 1), (1.0/12.0)) - 1;
-		if (tipoTiempo.equals("A"))
+		//if (tipoTiempo.equals("A"))
+		if (spTiempo.getSelectedItemPosition() == 1)
 			tiempo = tiempo * 12;
 		double cuotaXinteres = monto;
 		if (interes == 0){

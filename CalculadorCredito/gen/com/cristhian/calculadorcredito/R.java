@@ -83,6 +83,8 @@ containing a value of this type.
         public static final int etInteres=0x7f0a000b;
         public static final int etMonto=0x7f0a0008;
         public static final int etTiempo=0x7f0a000e;
+        public static final int itemLimpiar=0x7f0a0019;
+        public static final int itemSalir=0x7f0a001a;
         public static final int lyDetalleCuota=0x7f0a0010;
         public static final int lyMain=0x7f0a0006;
         public static final int spTiempo=0x7f0a000d;
@@ -112,17 +114,40 @@ containing a value of this type.
         public static final int main=0x7f090002;
     }
     public static final class string {
+        public static final int CabeceraCuota=0x7f050011;
+        public static final int CabeceraInteres=0x7f050012;
+        public static final int CabeceraItemAbonoCapital=0x7f05000d;
+        public static final int CabeceraItemAbonoInteres=0x7f05000e;
+        /**  String que se usan como cabecera del ListView de la tabla de amortizacion 
+ String que se usan como cabecera del ListView de la tabla de amortizacion 
+ String que se usan como cabecera del ListView de la tabla de amortizacion 
+         */
+        public static final int CabeceraItemNumero=0x7f05000c;
+        public static final int CabeceraItemSaldo=0x7f05000f;
+        public static final int CabeceraMonto=0x7f050013;
+        /**  String que son usados en la cabecera de la actividad donde esta la tabla de amortizacion 
+ String que son usados en la cabecera de la actividad donde esta la tabla de amortizacion 
+ String que son usados en la cabecera de la actividad donde esta la tabla de amortizacion 
+         */
+        public static final int CabeceraNoCuotas=0x7f050010;
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
-        public static final int btnAmortizacion=0x7f050007;
-        public static final int btnCalcular=0x7f050005;
-        public static final int title_activity_act_tabla_amortizaion=0x7f050008;
+        public static final int btnAmortizacion=0x7f05000a;
+        public static final int btnCalcular=0x7f050008;
+        public static final int hintEtInteres=0x7f050005;
+        public static final int hintEtMonto=0x7f050004;
+        public static final int hintEtTiempo=0x7f050006;
+        public static final int menuLimpiar=0x7f050015;
+        /**  Menus 
+ Menu 
+ Menus 
+         */
+        public static final int menuSalir=0x7f050014;
+        public static final int title_activity_act_tabla_amortizaion=0x7f05000b;
         public static final int tvInteres=0x7f050003;
-        public static final int tvTiempoPrestamo=0x7f050004;
-        public static final int tvValorCuota=0x7f050006;
+        public static final int tvTiempoPrestamo=0x7f050007;
+        public static final int tvValorCuota=0x7f050009;
         public static final int tvValorPrestamo=0x7f050002;
-        public static final int validacionAno=0x7f050009;
-        public static final int validacionMes=0x7f05000a;
     }
     public static final class style {
         /** 
