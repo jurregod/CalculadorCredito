@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ElementoLista">
+        <attr name="textNumero" format="string"/>
+        <attr name="textAbonoCapital" format="string"/>
+        <attr name="textAbonoInteres" format="string"/>
+        <attr name="textSaldo" format="string"/>
+        <attr name="textNegrilla" format="boolean"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Credit Calculator</string>
+    <string name="action_settings">Settings</string>
+    <string name="tvValorPrestamo">Value of Loan</string>
+    <string name="tvInteres">Loan Interest</string>
+    <string-array name="ArrayTipoInteres">
+        <item name="M">Monthly</item>
+        <item name="A">Annual</item>
+    </string-array>
+    <string-array name="ArrayCantidadTiempo">
+        <item name="M">Months</item>
+        <item name="A">Years</item>
+    </string-array>
+	<string name="hintEtMonto">Amount of Loan</string>
+	<string name="hintEtInteres">interest %</string>
+	<string name="hintEtTiempo">Time Loan</string>
+    <string name="tvTiempoPrestamo">Time Loan</string>
+    <string name="btnCalcular">Calculate fee loan</string>
+    <string name="tvValorCuota">Value Fee:</string>
+    <string name="btnAmortizacion">Amortization table</string>
+    <string name="title_activity_act_tabla_amortizaion">Amortization table</string>
+    <!-- String que se usan como cabecera del ListView de la tabla de amortizacion -->
+    <string name="CabeceraItemNumero">No.</string>
+    <string name="CabeceraItemAbonoCapital">Capital</string>
+    <string name="CabeceraItemAbonoInteres">Interest</string>
+    <string name="CabeceraItemSaldo">balance</string>
+    <!-- String que son usados en la cabecera de la actividad donde esta la tabla de amortizacion -->
+    <string name="CabeceraNoCuotas">No. Fees</string>
+    <string name="CabeceraCuota">Fee</string>
+    <string name="CabeceraInteres">Interest</string>
+    <string name="CabeceraMonto">Amount</string>
+    <!-- Menu -->
+    <string name="menuSalir">Exit</string>
+    <string name="menuLimpiar">Clean</string>
+</resources>

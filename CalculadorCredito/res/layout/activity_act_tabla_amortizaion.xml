@@ -1,0 +1,78 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cm="http://schemas.android.com/apk/res/com.cristhian.calculadorcredito"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ActTablaAmortizaion" >
+	
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cabecera"
+        >
+
+        <TextView android:id="@+id/tvCabeceraMonto"
+            android:text="@string/CabeceraMonto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            style="@style/ItemscabeceraAmortizacion"
+            android:layout_alignParentTop="true"/>
+        
+        <TextView android:id="@+id/tvCabeceraCuota"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CabeceraCuota"
+            style="@style/ItemscabeceraAmortizacion"
+            android:layout_below="@id/tvCabeceraMonto"
+            android:layout_alignParentLeft="true"/>
+        
+        <TextView android:id="@+id/tvCabeceraInteres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CabeceraInteres"
+            style="@style/ItemscabeceraAmortizacion"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"/>
+        
+        <TextView android:id="@+id/tvCabeceraNoCuotas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CabeceraNoCuotas"
+            style="@style/ItemscabeceraAmortizacion"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tvCabeceraInteres"/>
+        
+    </RelativeLayout>
+    
+    <com.cristhian.calculadorcredito.ElementoLista android:id="@+id/cabecera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/registro2"
+        cm:textNumero="@string/CabeceraItemNumero"
+        cm:textAbonoCapital="@string/CabeceraItemAbonoCapital"
+        cm:textAbonoInteres="@string/CabeceraItemAbonoInteres"
+        cm:textSaldo="@string/CabeceraItemSaldo"
+        cm:textNegrilla="true"
+         />
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:drawSelectorOnTop="false" />
+
+        <TextView
+            android:id="@android:id/empty"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            />
+    </FrameLayout>
+</LinearLayout>
