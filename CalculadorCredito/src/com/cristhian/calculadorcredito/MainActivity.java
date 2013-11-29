@@ -49,6 +49,7 @@ public class MainActivity extends Activity implements AdListener {
 	private EditText etValor;
 	private EditText etInteres;
 	private EditText etTiempo;
+	private TextView tvCuota;
 	private Spinner spInteres;
 	private Spinner spTiempo;
 	private AdView anuncio;
@@ -74,18 +75,17 @@ public class MainActivity extends Activity implements AdListener {
 		etInteres = (EditText)findViewById(R.id.etInteres);
 		etInteres.setOnFocusChangeListener(new PercentFormatFocusChange());
 		etTiempo = (EditText)findViewById(R.id.etTiempo);
+		tvCuota = (TextView)findViewById(R.id.tvValorCuota);
 		//Obtenemos una referencia al servicio de localizacion
 		locManager = (LocationManager)getSystemService(LOCATION_SERVICE);	
-		anuncio = new AdView(this, AdSize.BANNER, "ca-app-pub-7618114390015000/8160452378");
-		LinearLayout lyAdd = (LinearLayout)findViewById(R.id.lyMain);
-		lyAdd.addView(anuncio);
+		anuncio = (AdView)findViewById(R.id.adView);
 		AdRequest request = new AdRequest();
 		Location ubicacion = locManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 		if (ubicacion != null){
 			request.setLocation(ubicacion);
 		}
-		//request.addTestDevice(AdRequest.TEST_EMULATOR);
-		//request.addTestDevice("2AB3408AF84416D0B0DB200867D11643");
+		request.addTestDevice(AdRequest.TEST_EMULATOR);
+		request.addTestDevice("2AB3408AF84416D0B0DB200867D11643");
 		anuncio.loadAd(request);
 	}
 
@@ -112,7 +112,10 @@ public class MainActivity extends Activity implements AdListener {
 	private void limpiar(){
 		etValor.setText("");
 		etInteres.setText("");
-		etValor.setText("");
+		etTiempo.setText("");
+		tvCuota.setText("$ 0");
+		lyDetalle.setVisibility(LinearLayout.INVISIBLE);
+		etValor.requestFocus();
 	}
 	
 	@Override
@@ -156,7 +159,6 @@ public class MainActivity extends Activity implements AdListener {
 		}else{
 			cuota = (interes * monto) /(1- Math.pow((1 + interes), (-1.0 * tiempo)));
 		}
-		TextView tvCuota = (TextView)findViewById(R.id.tvValorCuota);
 		NumberFormat nf = NumberFormat.getCurrencyInstance();
         nf.setMaximumFractionDigits(0);
 		tvCuota.setText(nf.format(cuota));
@@ -171,8 +173,8 @@ public class MainActivity extends Activity implements AdListener {
 		if (ubicacion != null){
 			request.setLocation(ubicacion);
 		}
-		//request.addTestDevice(AdRequest.TEST_EMULATOR);
-		//request.addTestDevice("2AB3408AF84416D0B0DB200867D11643");
+		request.addTestDevice(AdRequest.TEST_EMULATOR);
+		request.addTestDevice("2AB3408AF84416D0B0DB200867D11643");
 		anuncioInter.setAdListener(this);
 		anuncioInter.loadAd(request);
 		Intent i = new Intent(this, ActTablaAmortizaion.class);

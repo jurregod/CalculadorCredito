@@ -6,5 +6,5 @@
         <attr name="textAbonoInteres" format="string"/>
         <attr name="textSaldo" format="string"/>
         <attr name="textNegrilla" format="boolean"/>
-    </declare-styleable>
+    </declare-styleable> 
 </resources>

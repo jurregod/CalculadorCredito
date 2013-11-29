@@ -4,136 +4,157 @@
     android:id="@+id/lyMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="0dp"
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-    	android:paddingLeft="@dimen/activity_horizontal_margin"
-    	android:paddingRight="@dimen/activity_horizontal_margin"
-    	android:paddingTop="@dimen/activity_vertical_margin"
-        android:orientation="vertical" >
-        
-        <TextView 
-        android:id="@+id/tvMonto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tvValorPrestamo"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/etMonto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/hintEtMonto"
-        android:inputType="number" >
-
-        <requestFocus android:layout_width="wrap_content" />
-
-    </EditText>
-
-    <TextView
-        android:id="@+id/tvInteres"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tvInteres"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <Spinner
-            android:id="@+id/spTipoInteres"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:entries="@array/ArrayTipoInteres" />
-
-        <EditText
-            android:id="@+id/etInteres"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/hintEtInteres"
-            android:inputType="number|numberDecimal"
-            android:maxLength="4" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvTiempoPrestamo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tvTiempoPrestamo"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
+        <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingBottom="@dimen/activity_vertical_margin"
+	    	android:paddingLeft="@dimen/activity_horizontal_margin"
+	    	android:paddingRight="@dimen/activity_horizontal_margin"
+	    	android:paddingTop="@dimen/activity_vertical_margin"
+	        android:orientation="vertical" >
+	        
+	        <TextView 
+	        android:id="@+id/tvMonto"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/tvValorPrestamo"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	    <EditText
+	        android:id="@+id/etMonto"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:ems="10"
+	        android:hint="@string/hintEtMonto"
+	        android:inputType="number" >
+	
+	        <requestFocus android:layout_width="wrap_content" />
+	
+	    </EditText>
+	
+	    <TextView
+	        android:id="@+id/tvInteres"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/tvInteres"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	
+	        <Spinner
+	            android:id="@+id/spTipoInteres"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:entries="@array/ArrayTipoInteres" />
+	
+	        <EditText
+	            android:id="@+id/etInteres"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:hint="@string/hintEtInteres"
+	            android:inputType="number|numberDecimal"
+	            android:maxLength="4" />
+	
+	    </LinearLayout>
+	
+	    <TextView
+	        android:id="@+id/tvTiempoPrestamo"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/tvTiempoPrestamo"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	
+	        <Spinner
+	            android:id="@+id/spTiempo"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:entries="@array/ArrayCantidadTiempo" />
+	
+	        <EditText
+	            android:id="@+id/etTiempo"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:ems="10"
+	            android:hint="@string/hintEtTiempo"
+	            android:inputType="number" />
+	
+	    </LinearLayout>
+	
+	    <Button
+	        android:id="@+id/btnCalcular"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:onClick="calcularCuota"
+	        android:text="@string/btnCalcular" />
+	
+	    <LinearLayout
+	        android:id="@+id/lyDetalleCuota"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:paddingTop="5dp"
+	        android:visibility="visible" >
+	
+	        <TextView
+	            android:id="@+id/tvTituloCuota"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:gravity="center_horizontal"
+	            android:text="@string/tvValorCuota"
+	            android:textAppearance="?android:attr/textAppearanceLarge"
+	            android:textSize="23sp"
+	            android:textStyle="normal"
+	            android:typeface="normal" />
+	
+	        <TextView
+	            android:id="@+id/tvValorCuota"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:text="$ 0"
+	            android:textAppearance="?android:attr/textAppearanceLarge" />
+	
+	        <Button
+	            android:id="@+id/btnAmortizacion"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:onClick="mostrarTablaAmortizacion"
+	            android:text="@string/btnAmortizacion" />
+	
+	    </LinearLayout>
+	        
+	    </LinearLayout>
+    </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent"
+        android:layout_margin="0dp"
+        android:orientation="horizontal" >
 
-        <Spinner
-            android:id="@+id/spTiempo"
+        <com.google.ads.AdView
+            android:id="@+id/adView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/ArrayCantidadTiempo" />
+            android:layout_gravity="bottom"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-7618114390015000/8160452378" >
 
-        <EditText
-            android:id="@+id/etTiempo"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:ems="10"
-            android:hint="@string/hintEtTiempo"
-            android:inputType="number" />
+        </com.google.ads.AdView>
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnCalcular"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="calcularCuota"
-        android:text="@string/btnCalcular" />
-
-    <LinearLayout
-        android:id="@+id/lyDetalleCuota"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="5dp"
-        android:visibility="visible" >
-
-        <TextView
-            android:id="@+id/tvTituloCuota"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/tvValorCuota"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="23sp"
-            android:textStyle="normal"
-            android:typeface="normal" />
-
-        <TextView
-            android:id="@+id/tvValorCuota"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="$ 0"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <Button
-            android:id="@+id/btnAmortizacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="mostrarTablaAmortizacion"
-            android:text="@string/btnAmortizacion" />
-
-    </LinearLayout>
-        
-    </LinearLayout>
-
-    
-
 </LinearLayout>

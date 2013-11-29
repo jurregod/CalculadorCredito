@@ -32,10 +32,10 @@
         <activity
             android:name="com.cristhian.calculadorcredito.ActTablaAmortizaion"
             android:label="@string/title_activity_act_tabla_amortizaion"
-            android:parentActivityName="android.app.ListActivity" >
+            android:parentActivityName="com.cristhian.calculadorcredito.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="android.app.ListActivity" />
+                android:value="com.cristhian.calculadorcredito.MainActivity" />
         </activity>
     </application>
 
